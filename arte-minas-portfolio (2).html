@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arte Minas – Território em Movimento · 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8C97A;
+  --gold-pale: #F4E8C1;
+  --near-black: #0D0D0D;
+  --charcoal: #1A1A1A;
+  --dark-grey: #2B2B2B;
+  --mid-grey: #5A5A5A;
+  --light-grey: #EBEBEB;
+  --white: #FAF9F6;
+  --cream: #F7F3EC;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--near-black);
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 3rem;
+  background: linear-gradient(to bottom, rgba(13,13,13,0.96), transparent);
+  backdrop-filter: blur(4px);
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
+.nav-logo img {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.92;
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(250,249,246,0.6);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--gold-light); }
+
+/* PAGES */
+.page {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* UTILS */
+.gold-rule { width: 60px; height: 1px; background: var(--gold); margin: 1.5rem 0; }
+.gold-rule.center { margin: 1.5rem auto; }
+.page-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+/* PAGE 1 – CAPA */
+#capa { background: var(--near-black); justify-content: flex-end; padding-bottom: 0; }
+.capa-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 70% at 60% 40%, rgba(201,168,76,0.12), transparent 70%),
+    radial-gradient(ellipse 50% 60% at 20% 80%, rgba(201,168,76,0.07), transparent 60%),
+    linear-gradient(135deg, #0D0D0D 0%, #1A1410 50%, #0D0D0D 100%);
+}
+.stage-light {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+.stage-light-1 {
+  width: 500px; height: 500px;
+  top: -100px; left: 30%;
+  background: radial-gradient(circle, rgba(201,168,76,0.18), transparent 70%);
+  animation: pulse-light 6s ease-in-out infinite alternate;
+}
+.stage-light-2 {
+  width: 350px; height: 400px;
+  top: -80px; left: 55%;
+  background: radial-gradient(circle, rgba(232,201,122,0.1), transparent 70%);
+  animation: pulse-light 8s ease-in-out infinite alternate-reverse;
+}
+@keyframes pulse-light {
+  from { opacity: 0.6; transform: scale(1); }
+  to { opacity: 1; transform: scale(1.1); }
+}
+.dancers-silhouette {
+  position: absolute; bottom: 0;
+  left: 50%; transform: translateX(-50%);
+  width: 100%; max-width: 900px;
+  height: 75vh;
+  display: flex; align-items: flex-end; justify-content: center;
+  pointer-events: none;
+}
+.dancer svg { filter: drop-shadow(0 0 30px rgba(201,168,76,0.25)); }
+@keyframes sway1 {
+  0%,100% { transform: rotate(-2deg) translateY(0); }
+  50% { transform: rotate(1deg) translateY(-8px); }
+}
+@keyframes sway2 {
+  0%,100% { transform: rotate(1deg) translateY(-4px); }
+  50% { transform: rotate(-1.5deg) translateY(4px); }
+}
+@keyframes sway3 {
+  0%,100% { transform: rotate(2deg) translateY(-2px); }
+  50% { transform: rotate(-1deg) translateY(6px); }
+}
+.dancer:nth-child(1) { animation: sway1 7s ease-in-out infinite; }
+.dancer:nth-child(2) { animation: sway2 9s ease-in-out infinite; }
+.dancer:nth-child(3) { animation: sway3 8s ease-in-out infinite; }
+.capa-content {
+  position: relative; z-index: 2;
+  padding: 12rem 3rem 3rem 8%;
+  max-width: 700px;
+}
+.capa-eyebrow {
+  font-size: 0.65rem; letter-spacing: 0.35em;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.capa-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 40px; height: 1px;
+  background: var(--gold);
+}
+.capa-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  font-weight: 300; line-height: 1;
+  letter-spacing: -0.01em; color: var(--white);
+  margin-bottom: 0.3rem;
+}
+.capa-title em { font-style: italic; color: var(--gold-light); }
+.capa-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  font-weight: 300; font-style: italic;
+  color: rgba(250,249,246,0.6);
+  margin-bottom: 2rem; line-height: 1.4;
+}
+.capa-meta { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+.capa-tag {
+  font-size: 0.65rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: rgba(250,249,246,0.45);
+  padding: 0.5rem 1.2rem;
+  border: 1px solid rgba(201,168,76,0.3);
+}
+
+/* PAGE 2 – APRESENTAÇÃO */
+#apresentacao { background: var(--cream); color: var(--near-black); padding: 8rem 0; }
+.pres-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 4rem;
+  display: grid; grid-template-columns: 1fr 1.8fr;
+  gap: 6rem; align-items: center;
+}
+.pres-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 8rem; font-weight: 300; line-height: 1;
+  color: rgba(201,168,76,0.18); margin-bottom: -1.5rem;
+}
+.pres-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem; font-weight: 600;
+  line-height: 1.1; color: var(--near-black);
+}
+.pres-right p { font-size: 1.05rem; line-height: 1.9; color: var(--dark-grey); margin-bottom: 1.5rem; font-weight: 300; }
+.pres-highlight {
+  border-left: 2px solid var(--gold);
+  padding-left: 1.5rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-style: italic;
+  color: var(--charcoal); margin: 2rem 0;
+}
+
+/* PAGE 3 – ARTE MINAS */
+#arte-minas { background: var(--charcoal); padding: 8rem 0; position: relative; }
+.am-bg-text {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20vw; font-weight: 700;
+  color: rgba(255,255,255,0.025);
+  white-space: nowrap; pointer-events: none;
+  letter-spacing: -0.05em; user-select: none;
+}
+.am-inner { max-width: 1000px; margin: 0 auto; padding: 0 4rem; text-align: center; position: relative; z-index: 2; }
+.am-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 300; color: var(--white);
+  margin-bottom: 3rem; line-height: 1.2;
+}
+.am-title span { color: var(--gold-light); font-style: italic; }
+.am-body { font-size: 1rem; line-height: 1.9; color: rgba(250,249,246,0.7); max-width: 700px; margin: 0 auto 3rem; }
+.am-pillars {
+  display: flex; justify-content: center;
+  gap: 0; margin-top: 3.5rem;
+  border: 1px solid rgba(201,168,76,0.2);
+}
+.am-pillar {
+  flex: 1; padding: 2.5rem 2rem; text-align: center;
+  border-right: 1px solid rgba(201,168,76,0.2);
+  transition: background 0.3s;
+}
+.am-pillar:last-child { border-right: none; }
+.am-pillar:hover { background: rgba(201,168,76,0.05); }
+.am-pillar-icon { font-size: 1.6rem; margin-bottom: 1rem; }
+.am-pillar-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--gold-light); margin-bottom: 0.5rem; }
+.am-pillar-desc { font-size: 0.75rem; letter-spacing: 0.06em; color: rgba(250,249,246,0.45); text-transform: uppercase; line-height: 1.6; }
+
+/* PAGE 4 – DIREÇÃO */
+#direcao { background: var(--near-black); padding: 8rem 0; position: relative; overflow: hidden; }
+.dir-accent {
+  position: absolute; top: 0; bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  background: linear-gradient(to bottom, transparent 10%, rgba(201,168,76,0.3) 30%, rgba(201,168,76,0.6) 50%, rgba(201,168,76,0.3) 70%, transparent 90%);
+  pointer-events: none;
+}
+.dir-inner { max-width: 1200px; margin: 0 auto; padding: 0 4rem; }
+.dir-heading-area { text-align: center; margin-bottom: 5rem; }
+.dir-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; color: var(--white); }
+.dir-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 5rem; align-items: start; }
+.dir-person-label { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem; }
+.dir-avatar {
+  width: 100%; aspect-ratio: 4/3;
+  background: linear-gradient(135deg, #1E1810, #2A2016, #1A1410);
+  border: 1px solid rgba(201,168,76,0.3);
+  margin-bottom: 1.5rem;
+  position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.dir-avatar img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: brightness(0.92) contrast(1.04);
+}
+.dir-avatar::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(13,13,13,0.5) 0%, rgba(13,13,13,0.1) 40%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+/* Overlay dourado sutil — apenas sobre a foto, não o texto */
+.dir-avatar::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(201,168,76,0.04);
+  pointer-events: none;
+  z-index: 2;
+}
+.dir-avatar-placeholder { text-align: center; }
+.dir-avatar-icon { font-size: 4rem; opacity: 0.3; display: block; margin-bottom: 0.5rem; }
+.dir-avatar-hint { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(201,168,76,0.4); }
+#demison .dir-avatar { max-width: 85%; margin: 0 auto 1.5rem; }
+
+/* AULA — watermark/textura institucional */
+.aula-watermark {
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 40%;
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+.aula-watermark img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%) blur(1.5px) brightness(0.5);
+  opacity: 0.06;
+  display: block;
+}
+
+/* Teatro — foto real */
+.teatro-img-frame img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.9) brightness(0.85);
+  display: block;
+}
+.dir-name { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; color: var(--white); margin-bottom: 0.3rem; }
+.dir-role { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
+.dir-bio { font-size: 0.88rem; line-height: 1.9; color: rgba(250,249,246,0.6); }
+.dir-bio p { margin-bottom: 1rem; }
+.dir-badge { display: inline-block; margin-top: 1rem; padding: 0.4rem 1rem; border: 1px solid rgba(201,168,76,0.3); font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-light); }
+
+/* PAGE 5 – O PROJETO */
+#projeto { background: var(--gold); padding: 8rem 0; color: var(--near-black); }
+.proj-inner { max-width: 1100px; margin: 0 auto; padding: 0 4rem; }
+.proj-top { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 4rem; }
+.proj-heading { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.05; color: var(--near-black); }
+.proj-intro { font-size: 0.95rem; line-height: 1.9; color: rgba(13,13,13,0.7); padding-top: 1rem; }
+.proj-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid rgba(13,13,13,0.2); margin-bottom: 3rem; }
+.proj-stat { padding: 2.5rem 2rem; border-right: 1px solid rgba(13,13,13,0.2); text-align: center; }
+.proj-stat:last-child { border-right: none; }
+.proj-stat-num { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; line-height: 1; color: var(--near-black); }
+.proj-stat-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(13,13,13,0.6); margin-top: 0.4rem; }
+.proj-activities { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+.proj-activity { padding: 0.6rem 1.4rem; background: rgba(13,13,13,0.08); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--near-black); border: 1px solid rgba(13,13,13,0.15); transition: background 0.25s; }
+.proj-activity:hover { background: rgba(13,13,13,0.15); }
+
+/* PAGE 6 – TEATRO NAS ESCOLAS */
+#teatro { background: var(--charcoal); padding: 8rem 0; position: relative; overflow: hidden; }
+.teatro-circle { position: absolute; border-radius: 50%; border: 1px solid rgba(201,168,76,0.1); pointer-events: none; }
+.teatro-circle-1 { width: 600px; height: 600px; top: -200px; right: -200px; animation: spin-slow 40s linear infinite; }
+.teatro-circle-2 { width: 400px; height: 400px; bottom: -150px; left: -100px; animation: spin-slow 30s linear infinite reverse; }
+@keyframes spin-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.teatro-inner { max-width: 1100px; margin: 0 auto; padding: 0 4rem; display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: center; position: relative; z-index: 2; }
+.teatro-img-frame { width: 100%; aspect-ratio: 4/3; background: linear-gradient(135deg, #1A1A1A, #242010); border: 1px solid rgba(201,168,76,0.2); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.children-circle-anim { width: 200px; height: 200px; position: relative; }
+.child-dot { position: absolute; background: var(--gold); border-radius: 50%; animation: orbit 12s linear infinite; }
+@keyframes orbit {
+  0% { transform: rotate(var(--start, 0deg)) translateX(80px); }
+  100% { transform: rotate(calc(var(--start, 0deg) + 360deg)) translateX(80px); }
+}
+.child-dot:nth-child(1) { width:12px; height:12px; top:94px; left:94px; --start:0deg; }
+.child-dot:nth-child(2) { width:10px; height:10px; top:95px; left:95px; --start:45deg; animation-delay:-1.5s; background:var(--gold-light); }
+.child-dot:nth-child(3) { width:13px; height:13px; top:93.5px; left:93.5px; --start:90deg; animation-delay:-3s; }
+.child-dot:nth-child(4) { width:11px; height:11px; top:94.5px; left:94.5px; --start:135deg; animation-delay:-4.5s; background:var(--gold-light); }
+.child-dot:nth-child(5) { width:12px; height:12px; top:94px; left:94px; --start:180deg; animation-delay:-6s; }
+.child-dot:nth-child(6) { width:10px; height:10px; top:95px; left:95px; --start:225deg; animation-delay:-7.5s; background:var(--gold-light); }
+.child-dot:nth-child(7) { width:13px; height:13px; top:93.5px; left:93.5px; --start:270deg; animation-delay:-9s; }
+.child-dot:nth-child(8) { width:11px; height:11px; top:94.5px; left:94.5px; --start:315deg; animation-delay:-10.5s; background:var(--gold-light); }
+.teatro-label-float { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; background: linear-gradient(to top, rgba(13,13,13,0.95), transparent); font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: var(--gold-light); }
+.teatro-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; color: var(--white); line-height: 1.15; margin-bottom: 1.5rem; }
+.teatro-desc { font-size: 0.9rem; line-height: 1.9; color: rgba(250,249,246,0.6); margin-bottom: 2rem; }
+.teatro-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+.teatro-list li { display: flex; align-items: center; gap: 1rem; font-size: 0.85rem; color: rgba(250,249,246,0.7); }
+.teatro-list li::before { content: ''; width: 24px; height: 1px; background: var(--gold); flex-shrink: 0; }
+
+/* PAGE 7 – IMPACTO */
+#impacto { background: var(--cream); color: var(--near-black); padding: 8rem 0; position: relative; overflow: hidden; }
+.impacto-bg-map { position: absolute; inset: 0; opacity: 0.04; background-image: repeating-linear-gradient(0deg, transparent, transparent 40px, #000 40px, #000 41px), repeating-linear-gradient(90deg, transparent, transparent 40px, #000 40px, #000 41px); }
+.impacto-inner { max-width: 1100px; margin: 0 auto; padding: 0 4rem; position: relative; z-index: 2; }
+.impacto-top { text-align: center; margin-bottom: 4rem; }
+.impacto-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 300; color: var(--near-black); line-height: 1.1; }
+.impacto-title em { font-style: italic; color: #8B6914; }
+.impacto-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; border: 1px solid rgba(13,13,13,0.1); }
+.impacto-card { padding: 2.5rem 1.5rem; border-right: 1px solid rgba(13,13,13,0.1); text-align: center; transition: background 0.3s; position: relative; }
+.impacto-card:last-child { border-right: none; }
+.impacto-card:hover { background: rgba(201,168,76,0.06); }
+.impacto-card::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 40px; height: 2px; background: var(--gold); opacity: 0; transition: opacity 0.3s; }
+.impacto-card:hover::before { opacity: 1; }
+.impacto-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+.impacto-card-title { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--near-black); line-height: 1.3; margin-bottom: 0.5rem; }
+.impacto-card-desc { font-size: 0.7rem; letter-spacing: 0.06em; color: var(--mid-grey); line-height: 1.6; }
+.impacto-footer { margin-top: 3rem; text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-style: italic; color: #8B6914; }
+
+/* PAGE 8 – INCLUSÃO */
+#inclusao { background: var(--near-black); padding: 8rem 0; position: relative; overflow: hidden; }
+.inclusao-glow { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(201,168,76,0.06), transparent 70%); pointer-events: none; }
+.inclusao-inner { max-width: 1000px; margin: 0 auto; padding: 0 4rem; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; position: relative; z-index: 2; }
+.inclusao-visual { display: flex; align-items: center; justify-content: center; }
+.hands-anim { position: relative; width: 260px; height: 260px; }
+.hand-ring { position: absolute; border-radius: 50%; border: 1px solid rgba(201,168,76,0.2); top: 50%; left: 50%; transform: translate(-50%, -50%); animation: ripple-out 4s ease-out infinite; }
+.hand-ring:nth-child(2) { animation-delay: -1.3s; }
+.hand-ring:nth-child(3) { animation-delay: -2.6s; }
+@keyframes ripple-out { 0% { width: 60px; height: 60px; opacity: 0.8; border-color: rgba(201,168,76,0.6); } 100% { width: 260px; height: 260px; opacity: 0; border-color: rgba(201,168,76,0.1); } }
+.hands-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 3.5rem; }
+.inclusao-title { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: var(--white); line-height: 1.1; margin-bottom: 2rem; }
+.inclusao-intro { font-size: 0.9rem; line-height: 1.9; color: rgba(250,249,246,0.6); margin-bottom: 2rem; }
+.inclusao-items { display: flex; flex-direction: column; gap: 1rem; }
+.inclusao-item { display: flex; align-items: flex-start; gap: 1.2rem; padding: 1rem 1.2rem; border: 1px solid rgba(201,168,76,0.1); transition: border-color 0.3s, background 0.3s; }
+.inclusao-item:hover { border-color: rgba(201,168,76,0.3); background: rgba(201,168,76,0.03); }
+.inclusao-item-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 0.1rem; }
+.inclusao-item-text { font-size: 0.85rem; line-height: 1.7; color: rgba(250,249,246,0.65); }
+.inclusao-item-text strong { display: block; font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-light); font-weight: 500; margin-bottom: 0.2rem; }
+
+/* PAGE 9 – ESG */
+#esg { background: #0A0F0A; padding: 8rem 0; position: relative; overflow: hidden; }
+.esg-grid-bg { position: absolute; inset: 0; background-image: repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(201,168,76,0.03) 60px, rgba(201,168,76,0.03) 61px); pointer-events: none; }
+.esg-inner { max-width: 1100px; margin: 0 auto; padding: 0 4rem; position: relative; z-index: 2; }
+.esg-header { display: flex; align-items: center; gap: 2rem; margin-bottom: 4rem; }
+.esg-badge { font-family: 'Cormorant Garamond', serif; font-size: 5rem; font-weight: 300; color: rgba(201,168,76,0.2); line-height: 1; }
+.esg-title { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: var(--white); }
+.esg-subtitle { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: rgba(201,168,76,0.6); }
+.esg-columns { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(201,168,76,0.1); }
+.esg-col { background: #0A0F0A; padding: 3rem 2.5rem; position: relative; }
+.esg-col::before { content: ''; position: absolute; top: 0; left: 2.5rem; width: 30px; height: 2px; }
+.esg-col:nth-child(1)::before { background: #4CAF50; }
+.esg-col:nth-child(2)::before { background: #2196F3; }
+.esg-col:nth-child(3)::before { background: var(--gold); }
+.esg-col-label { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; margin-bottom: 0.5rem; }
+.esg-col:nth-child(1) .esg-col-label { color: #4CAF50; }
+.esg-col:nth-child(2) .esg-col-label { color: #2196F3; }
+.esg-col:nth-child(3) .esg-col-label { color: var(--gold); }
+.esg-col-title { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; color: var(--white); margin-bottom: 1.5rem; }
+.esg-col-text { font-size: 0.85rem; line-height: 1.9; color: rgba(250,249,246,0.55); }
+
+/* PAGE 10 – RETORNO */
+#retorno { background: var(--cream); color: var(--near-black); padding: 8rem 0; position: relative; overflow: hidden; }
+.ret-inner { max-width: 1100px; margin: 0 auto; padding: 0 4rem; }
+.ret-top { display: grid; grid-template-columns: 1fr 1.5fr; gap: 5rem; align-items: start; margin-bottom: 4rem; }
+.ret-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; line-height: 1.1; color: var(--near-black); }
+.ret-title span { color: #8B6914; font-style: italic; }
+.ret-intro { font-size: 0.95rem; line-height: 1.9; color: var(--dark-grey); margin-bottom: 1.5rem; }
+.applause-vis { display: flex; align-items: flex-end; justify-content: center; gap: 6px; height: 80px; margin: 2rem 0; }
+.applause-bar { width: 10px; background: linear-gradient(to top, var(--gold), var(--gold-light)); border-radius: 2px 2px 0 0; animation: bar-pulse 1.8s ease-in-out infinite; }
+@keyframes bar-pulse { 0%, 100% { transform: scaleY(0.3); opacity: 0.5; } 50% { transform: scaleY(1); opacity: 1; } }
+.applause-bar:nth-child(1) { height: 40px; animation-delay: 0s; }
+.applause-bar:nth-child(2) { height: 65px; animation-delay: 0.15s; }
+.applause-bar:nth-child(3) { height: 55px; animation-delay: 0.3s; }
+.applause-bar:nth-child(4) { height: 80px; animation-delay: 0.45s; }
+.applause-bar:nth-child(5) { height: 50px; animation-delay: 0.6s; }
+.applause-bar:nth-child(6) { height: 70px; animation-delay: 0.75s; }
+.applause-bar:nth-child(7) { height: 45px; animation-delay: 0.9s; }
+.applause-bar:nth-child(8) { height: 60px; animation-delay: 1.05s; }
+.applause-bar:nth-child(9) { height: 35px; animation-delay: 1.2s; }
+.ret-benefits { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgba(13,13,13,0.1); }
+.ret-benefit { background: var(--cream); padding: 2rem; display: flex; gap: 1.2rem; align-items: flex-start; transition: background 0.3s; }
+.ret-benefit:hover { background: rgba(201,168,76,0.08); }
+.ret-benefit-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.1rem; }
+.ret-benefit-text strong { display: block; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: #8B6914; margin-bottom: 0.3rem; font-weight: 600; }
+.ret-benefit-text p { font-size: 0.83rem; line-height: 1.7; color: var(--mid-grey); }
+
+/* PAGE 11 – SOCIEDADE */
+#sociedade { background: var(--charcoal); padding: 8rem 0; }
+.soc-inner { max-width: 1000px; margin: 0 auto; padding: 0 4rem; text-align: center; }
+.soc-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; color: var(--white); margin-bottom: 1rem; }
+.soc-quote { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; color: var(--gold-light); margin-bottom: 3rem; }
+.soc-items { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; background: rgba(201,168,76,0.1); margin-bottom: 3rem; }
+.soc-item { background: var(--charcoal); padding: 2.5rem 1rem; transition: background 0.3s; }
+.soc-item:hover { background: rgba(201,168,76,0.05); }
+.soc-item-num { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; color: rgba(201,168,76,0.3); display: block; margin-bottom: 0.5rem; }
+.soc-item-text { font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(250,249,246,0.55); line-height: 1.5; }
+
+/* PAGE 12 – INVESTIMENTO */
+#investimento { background: var(--near-black); padding: 8rem 0; }
+.inv-inner { max-width: 900px; margin: 0 auto; padding: 0 4rem; text-align: center; }
+.inv-amount { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 8vw, 7rem); font-weight: 300; color: var(--gold-light); line-height: 1; margin: 2rem 0 0.5rem; }
+.inv-amount-label { font-size: 0.65rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(201,168,76,0.5); margin-bottom: 3rem; }
+.inv-details { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(201,168,76,0.1); max-width: 600px; margin: 0 auto 3rem; }
+.inv-detail { background: var(--near-black); padding: 1.8rem 1.5rem; text-align: center; }
+.inv-detail-val { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--white); display: block; margin-bottom: 0.3rem; }
+.inv-detail-key { font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(201,168,76,0.5); }
+.inv-note { font-size: 0.8rem; line-height: 1.8; color: rgba(250,249,246,0.4); max-width: 500px; margin: 0 auto; font-style: italic; }
+
+/* PAGE FINAL – ENCERRAMENTO */
+#encerramento {
+  background: var(--near-black);
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center; padding: 6rem 3rem;
+  position: relative; overflow: hidden;
+}
+.enc-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 50%, rgba(201,168,76,0.1), transparent 70%),
+    linear-gradient(135deg, #0D0D0D 0%, #1A1308 50%, #0D0D0D 100%);
+}
+.curtain-left, .curtain-right { position: absolute; top: 0; bottom: 0; width: 18%; pointer-events: none; }
+.curtain-left { left: 0; background: linear-gradient(to right, rgba(26,16,8,0.9) 0%, transparent 100%); }
+.curtain-right { right: 0; background: linear-gradient(to left, rgba(26,16,8,0.9) 0%, transparent 100%); }
+.enc-arms { position: absolute; bottom: 0; left: 0; right: 0; display: flex; justify-content: center; gap: 20px; pointer-events: none; opacity: 0.12; }
+.enc-arm { font-size: 3rem; animation: arm-raise 3s ease-in-out infinite alternate; }
+.enc-arm:nth-child(even) { animation-delay: 0.5s; }
+@keyframes arm-raise { from { transform: translateY(10px); } to { transform: translateY(-10px); } }
+.enc-content { position: relative; z-index: 2; max-width: 750px; }
+.enc-icon { font-size: 3rem; margin-bottom: 2rem; }
+.enc-eyebrow { font-size: 0.62rem; letter-spacing: 0.35em; text-transform: uppercase; color: var(--gold); margin-bottom: 2rem; }
+.enc-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 300; color: var(--white); line-height: 1.1; margin-bottom: 1rem; }
+.enc-title em { font-style: italic; color: var(--gold-light); }
+.enc-sub { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-style: italic; color: rgba(250,249,246,0.5); margin-bottom: 3rem; line-height: 1.5; }
+.enc-phrase { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 300; font-style: italic; color: var(--gold-light); border: 1px solid rgba(201,168,76,0.25); padding: 1.5rem 3rem; display: inline-block; margin-bottom: 3rem; line-height: 1.6; }
+.enc-credits { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(250,249,246,0.25); line-height: 2; }
+
+/* SCROLL REVEAL */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.15s; }
+.reveal-delay-2 { transition-delay: 0.3s; }
+.reveal-delay-3 { transition-delay: 0.45s; }
+.reveal-delay-4 { transition-delay: 0.6s; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  .pres-inner, .dir-grid, .teatro-inner, .inclusao-inner, .ret-top, .proj-top { grid-template-columns: 1fr; gap: 2rem; }
+  .impacto-grid, .soc-items { grid-template-columns: repeat(2, 1fr); }
+  .esg-columns { grid-template-columns: 1fr; }
+  .am-pillars { flex-direction: column; }
+  .proj-stats { grid-template-columns: repeat(2, 1fr); }
+  .capa-content { padding: 10rem 1.5rem 2rem; }
+  .pres-inner, .am-inner, .teatro-inner, .inclusao-inner, .impacto-inner, .esg-inner, .ret-inner, .soc-inner, .inv-inner, .dir-inner, .proj-inner { padding: 0 1.5rem; }
+  .inv-details, .ret-benefits { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="images/logo-arteminas.jpg" alt="Arte Minas">
+  </div>
+  <ul class="nav-links">
+    <li><a href="#capa">Capa</a></li>
+    <li><a href="#direcao">Direção</a></li>
+    <li><a href="#projeto">Projeto</a></li>
+    <li><a href="#esg">ESG</a></li>
+    <li><a href="#retorno">Patrocínio</a></li>
+    <li><a href="#encerramento">Encerramento</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE 1 – CAPA -->
+<section class="page" id="capa">
+  <div class="capa-bg"></div>
+  <div class="stage-light stage-light-1"></div>
+  <div class="stage-light stage-light-2"></div>
+  <div class="dancers-silhouette">
+    <div class="dancer">
+      <svg width="120" height="380" viewBox="0 0 120 380" fill="none">
+        <circle cx="60" cy="40" r="18" fill="rgba(201,168,76,0.5)"/>
+        <path d="M60 58 Q45 120 38 180" stroke="rgba(201,168,76,0.5)" stroke-width="10" stroke-linecap="round"/>
+        <path d="M60 58 Q80 95 95 78" stroke="rgba(201,168,76,0.45)" stroke-width="8" stroke-linecap="round"/>
+        <path d="M38 180 Q20 240 10 310 Q8 340 15 360" stroke="rgba(201,168,76,0.5)" stroke-width="10" stroke-linecap="round"/>
+        <path d="M38 180 Q55 220 60 280 Q62 330 55 370" stroke="rgba(201,168,76,0.5)" stroke-width="10" stroke-linecap="round"/>
+        <path d="M38 180 Q5 160 2 120" stroke="rgba(201,168,76,0.4)" stroke-width="7" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="dancer">
+      <svg width="140" height="400" viewBox="0 0 140 400" fill="none">
+        <circle cx="70" cy="38" r="20" fill="rgba(201,168,76,0.7)"/>
+        <path d="M70 58 Q60 130 55 200" stroke="rgba(201,168,76,0.7)" stroke-width="12" stroke-linecap="round"/>
+        <path d="M70 58 Q100 80 130 60" stroke="rgba(201,168,76,0.6)" stroke-width="9" stroke-linecap="round"/>
+        <path d="M70 58 Q40 80 10 60" stroke="rgba(201,168,76,0.6)" stroke-width="9" stroke-linecap="round"/>
+        <path d="M55 200 Q40 280 30 370" stroke="rgba(201,168,76,0.7)" stroke-width="12" stroke-linecap="round"/>
+        <path d="M55 200 Q70 280 80 370" stroke="rgba(201,168,76,0.7)" stroke-width="12" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="dancer">
+      <svg width="110" height="370" viewBox="0 0 110 370" fill="none">
+        <circle cx="55" cy="38" r="17" fill="rgba(201,168,76,0.5)"/>
+        <path d="M55 55 Q65 120 68 180" stroke="rgba(201,168,76,0.5)" stroke-width="10" stroke-linecap="round"/>
+        <path d="M55 55 Q35 90 20 75" stroke="rgba(201,168,76,0.45)" stroke-width="7" stroke-linecap="round"/>
+        <path d="M55 55 Q80 100 100 130" stroke="rgba(201,168,76,0.45)" stroke-width="7" stroke-linecap="round"/>
+        <path d="M68 180 Q75 250 90 330 Q95 355 85 365" stroke="rgba(201,168,76,0.5)" stroke-width="10" stroke-linecap="round"/>
+        <path d="M68 180 Q55 250 48 330" stroke="rgba(201,168,76,0.5)" stroke-width="10" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+  <div style="position:absolute;bottom:0;left:0;right:0;height:200px;background:linear-gradient(to top, rgba(201,168,76,0.06), transparent);pointer-events:none;"></div>
+  <div class="capa-content">
+    <div class="capa-eyebrow">Portfólio Institucional · 2026</div>
+    <h1 class="capa-title">Território<br>em <em>Movimento</em></h1>
+    <p class="capa-subtitle">Formação Artística, Inclusão e Impacto Cultural<br>Barão de Cocais – MG</p>
+    <div class="capa-meta">
+      <span class="capa-tag">Arte Minas</span>
+      <span class="capa-tag">Lei Estadual de Incentivo à Cultura</span>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 2 – APRESENTAÇÃO -->
+<section class="page" id="apresentacao">
+  <div class="pres-inner">
+    <div class="pres-left reveal">
+      <div class="pres-num">02</div>
+      <div class="gold-rule"></div>
+      <div class="page-label" style="color:#8B6914;">Apresentação</div>
+      <h2 class="pres-heading">Uma plataforma de transformação</h2>
+    </div>
+    <div class="pres-right reveal reveal-delay-1">
+      <p>O <strong>Território em Movimento</strong> é um programa de formação artística e impacto social a ser realizado em Barão de Cocais/MG, com duração de seis meses, reunindo dança, teatro, oficinas formativas e apresentações públicas.</p>
+      <blockquote class="pres-highlight">"Mais do que um evento, o projeto é uma plataforma de qualificação, inclusão e fortalecimento cultural no território."</blockquote>
+      <p>Concebido com rigor técnico e sensibilidade social, o projeto reúne referências nacionais e internacionais da dança e da educação, criando uma experiência única de formação artística acessível a toda a comunidade de Barão de Cocais.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 3 – A ARTE MINAS -->
+<section class="page" id="arte-minas">
+  <div class="am-bg-text">ARTE</div>
+  <div class="am-inner">
+    <div class="page-label reveal">A Instituição</div>
+    <div class="gold-rule center reveal reveal-delay-1"></div>
+    <h2 class="am-title reveal reveal-delay-1">Arte Minas<br><span>Excelência técnica e compromisso social</span></h2>
+    <p class="am-body reveal reveal-delay-2">A Arte Minas é uma instituição cultural dedicada à formação artística, democratização do acesso à dança e fortalecimento da economia criativa. Atua na formação de crianças, jovens, adultos e terceira idade, promovendo projetos pedagógicos, apresentações culturais e eventos de formação profissional. Com trajetória consolidada, desenvolve ações que unem excelência técnica e compromisso social.</p>
+    <div class="am-pillars reveal reveal-delay-3">
+      <div class="am-pillar"><div class="am-pillar-icon">🩰</div><div class="am-pillar-title">Formação</div><div class="am-pillar-desc">Ballet, contemporâneo, jazz e danças urbanas</div></div>
+      <div class="am-pillar"><div class="am-pillar-icon">🌱</div><div class="am-pillar-title">Inclusão</div><div class="am-pillar-desc">Bolsas sociais e acessibilidade plena</div></div>
+      <div class="am-pillar"><div class="am-pillar-icon">🏆</div><div class="am-pillar-title">Excelência</div><div class="am-pillar-desc">Referências nacionais e internacionais</div></div>
+      <div class="am-pillar"><div class="am-pillar-icon">🎭</div><div class="am-pillar-title">Impacto</div><div class="am-pillar-desc">Transformação social pelo acesso à arte</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 4 – DIREÇÃO E EXECUÇÃO -->
+<section class="page" id="direcao">
+  <div class="dir-accent"></div>
+  <div class="dir-inner">
+    <div class="dir-heading-area reveal">
+      <div class="page-label">Direção e Execução</div>
+      <div class="gold-rule center"></div>
+      <h2 class="dir-title">As pessoas por trás do movimento</h2>
+    </div>
+    <div class="dir-grid">
+      <div class="dir-person reveal" id="adriana">
+        <div class="dir-person-label">Direção Artística</div>
+        <div class="dir-avatar">
+          <img src="images/adriana-villela.jpg" alt="Adriana Villela">
+        </div>
+        <div class="dir-name">Adriana Villela</div>
+        <div class="dir-role">Bailarina · Maître de Ballet · Coreógrafa Internacional</div>
+        <div class="dir-bio">
+          <p>Iniciou seus estudos em Belo Horizonte em 1972. Aos 17 anos integrou o Corpo de Baile do Palácio das Artes, tornando-se solista.</p>
+          <p>Atuou no Teatro Municipal do Rio de Janeiro, na Companhia Nacional de Bailados de Portugal e foi primeira bailarina em companhias da Alemanha.</p>
+          <p>Como maître e ensaiadora, trabalhou com a São Paulo Companhia de Dança e com coreógrafos como Nacho Duato, Balanchine e Rodrigo Pederneiras.</p>
+          <p>Membro do Conselho Internacional de Dança da UNESCO e delegada do CID em Minas Gerais.</p>
+        </div>
+        <span class="dir-badge">Comenda Mérito Artístico · SATED-MG</span>
+      </div>
+      <div class="dir-person reveal reveal-delay-2" id="demison">
+        <div class="dir-person-label">Execução – Teatro nas Escolas</div>
+        <div class="dir-avatar">
+          <img src="images/demison.png" alt="Demison Luis da Silva">
+        </div>
+        <div class="dir-name">Demison Luis da Silva</div>
+        <div class="dir-role">Educador Físico · Gestor de Projetos Sociais</div>
+        <div class="dir-bio">
+          <p>Formado em Educação Física, com pós-graduação em Futebol de Campo e Futsal (FAVENI) e Licença C pela CBF Academy.</p>
+          <p>Fundador de projetos esportivos voltados a crianças em situação de vulnerabilidade social. Coordenador do Projeto Gol de Placa, atendendo mais de 100 crianças.</p>
+          <p>No Território em Movimento, conduzirá as oficinas de teatro nas escolas de Barão de Cocais, promovendo expressão artística e desenvolvimento emocional.</p>
+        </div>
+        <span class="dir-badge">Mérito Esportivo · Mérito Escolar</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 5 – O PROJETO -->
+<section class="page" id="projeto">
+  <div class="proj-inner">
+    <div class="proj-top">
+      <div class="reveal">
+        <div class="page-label" style="color:rgba(13,13,13,0.5);">O Projeto</div>
+        <div style="width:40px;height:1px;background:rgba(13,13,13,0.3);margin:1rem 0;"></div>
+        <h2 class="proj-heading">Seis meses que transformam uma cidade</h2>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <p class="proj-intro">Um programa completo de formação artística, com atividades diversas, apresentações públicas e impacto direto na comunidade de Barão de Cocais.</p>
+        <div style="margin-top:2rem;">
+          <div class="page-label" style="color:rgba(13,13,13,0.5);margin-bottom:1rem;">Modalidades</div>
+          <div class="proj-activities">
+            <span class="proj-activity">Ballet Clássico</span>
+            <span class="proj-activity">Dança Contemporânea</span>
+            <span class="proj-activity">Jazz</span>
+            <span class="proj-activity">Danças Urbanas</span>
+            <span class="proj-activity">Teatro nas Escolas</span>
+            <span class="proj-activity">Mesa de Debate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="proj-stats reveal reveal-delay-2">
+      <div class="proj-stat"><div class="proj-stat-num">120</div><div class="proj-stat-label">Participantes</div></div>
+      <div class="proj-stat"><div class="proj-stat-num">50<span style="font-size:2rem;">%</span></div><div class="proj-stat-label">Bolsas Sociais</div></div>
+      <div class="proj-stat"><div class="proj-stat-num">21</div><div class="proj-stat-label">Oficinas</div></div>
+      <div class="proj-stat"><div class="proj-stat-num">3</div><div class="proj-stat-label">Noites de Gala</div></div>
+      <div class="proj-stat"><div class="proj-stat-num">6</div><div class="proj-stat-label">Meses de Duração</div></div>
+      <div class="proj-stat"><div class="proj-stat-num">∞</div><div class="proj-stat-label">Impacto Cultural</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 6 – TEATRO NAS ESCOLAS -->
+<section class="page" id="teatro">
+  <div class="teatro-circle teatro-circle-1"></div>
+  <div class="teatro-circle teatro-circle-2"></div>
+  <div class="teatro-inner">
+    <div class="reveal">
+      <div class="teatro-img-frame">
+        <img src="images/aula-01.jpg" alt="Oficinas nas escolas">
+        <div class="teatro-label-float">Oficinas nas escolas</div>
+      </div>
+    </div>
+    <div class="teatro-content reveal reveal-delay-1">
+      <div class="page-label">Nova Frente do Projeto</div>
+      <div class="gold-rule"></div>
+      <h2 class="teatro-title">Teatro nas<br>Escolas</h2>
+      <p class="teatro-desc">Oficinas de teatro em escolas de Barão de Cocais, conduzidas por Demison Luis da Silva. Uma ação que leva formação artística diretamente às unidades escolares, com foco em desenvolvimento humano integral.</p>
+      <ul class="teatro-list">
+        <li>Expressão corporal e criatividade</li>
+        <li>Comunicação e escuta ativa</li>
+        <li>Trabalho em equipe</li>
+        <li>Desenvolvimento socioemocional</li>
+        <li>Inclusão e pertencimento</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 7 – IMPACTO -->
+<section class="page" id="impacto">
+  <div class="impacto-bg-map"></div>
+  <div class="impacto-inner">
+    <div class="impacto-top reveal">
+      <div class="page-label" style="color:#8B6914;">Impacto em Barão de Cocais</div>
+      <div class="gold-rule center"></div>
+      <h2 class="impacto-title">Um <em>território</em><br>de formação e pertencimento</h2>
+    </div>
+    <div class="impacto-grid reveal reveal-delay-1">
+      <div class="impacto-card"><div class="impacto-icon">🎨</div><div class="impacto-card-title">Acesso gratuito à arte</div><div class="impacto-card-desc">Ampliação do acesso para toda a comunidade</div></div>
+      <div class="impacto-card"><div class="impacto-icon">⭐</div><div class="impacto-card-title">Talentos locais</div><div class="impacto-card-desc">Formação artística para jovens da cidade</div></div>
+      <div class="impacto-card"><div class="impacto-icon">💡</div><div class="impacto-card-title">Economia criativa</div><div class="impacto-card-desc">Estímulo ao setor criativo no município</div></div>
+      <div class="impacto-card"><div class="impacto-icon">🤝</div><div class="impacto-card-title">Engajamento comunitário</div><div class="impacto-card-desc">Mobilização e participação coletiva</div></div>
+      <div class="impacto-card"><div class="impacto-icon">🏛️</div><div class="impacto-card-title">Cultura como ferramenta</div><div class="impacto-card-desc">Valorização cultural como vetor de desenvolvimento</div></div>
+    </div>
+    <div class="impacto-footer reveal reveal-delay-2">"Barão de Cocais torna-se território de formação, não apenas de realização de evento."</div>
+  </div>
+</section>
+
+<!-- PAGE 8 – INCLUSÃO -->
+<section class="page" id="inclusao">
+  <div class="inclusao-glow"></div>
+  <div class="inclusao-inner">
+    <div class="inclusao-visual reveal">
+      <div class="hands-anim">
+        <div class="hand-ring"></div>
+        <div class="hand-ring"></div>
+        <div class="hand-ring"></div>
+        <div class="hands-center">🤝</div>
+      </div>
+    </div>
+    <div class="inclusao-content reveal reveal-delay-1">
+      <div class="page-label">Inclusão e Acessibilidade</div>
+      <div class="gold-rule"></div>
+      <h2 class="inclusao-title">Arte para<br>todos, sem<br>exceção.</h2>
+      <p class="inclusao-intro">Compromisso com diversidade e democratização cultural. O projeto foi desenhado para que nenhuma barreira impeça o acesso à arte.</p>
+      <div class="inclusao-items">
+        <div class="inclusao-item"><span class="inclusao-item-icon">🎟️</span><div class="inclusao-item-text"><strong>50% de Bolsas Sociais</strong>Metade das vagas destinadas a bolsistas integrais</div></div>
+        <div class="inclusao-item"><span class="inclusao-item-icon">🌈</span><div class="inclusao-item-text"><strong>Diversidade plena</strong>Inclusão de públicos LGBTQIA+, mulheres e PCDs</div></div>
+        <div class="inclusao-item"><span class="inclusao-item-icon">🤟</span><div class="inclusao-item-text"><strong>Tradução em Libras</strong>Intérprete qualificado em todas as apresentações</div></div>
+        <div class="inclusao-item"><span class="inclusao-item-icon">🔊</span><div class="inclusao-item-text"><strong>Audiodescrição</strong>Acesso pleno para pessoas com deficiência visual</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 9 – ESG -->
+<section class="page" id="esg">
+  <div class="esg-grid-bg"></div>
+  <div class="esg-inner">
+    <div class="esg-header reveal">
+      <div class="esg-badge">ESG</div>
+      <div class="esg-heading-text">
+        <div class="esg-subtitle">Alinhamento Estratégico</div>
+        <h2 class="esg-title">Compromisso com o futuro</h2>
+      </div>
+    </div>
+    <div class="esg-columns reveal reveal-delay-1">
+      <div class="esg-col"><div class="esg-col-label">Social</div><div class="esg-col-title">Pessoas em primeiro lugar</div><div class="esg-col-text">Formação cultural, inclusão e fortalecimento comunitário. O projeto cria impacto direto na vida de 120 participantes e beneficia indiretamente toda a comunidade de Barão de Cocais.</div></div>
+      <div class="esg-col"><div class="esg-col-label">Ambiental</div><div class="esg-col-title">Responsabilidade ambiental</div><div class="esg-col-text">Uso de materiais recicláveis, incentivo à redução de descartáveis e práticas sustentáveis durante a execução de todas as etapas do projeto.</div></div>
+      <div class="esg-col"><div class="esg-col-label">Governança</div><div class="esg-col-title">Transparência e gestão</div><div class="esg-col-text">Projeto aprovado no Sistema Estadual de Financiamento à Cultura, com prestação de contas formal, equipe técnica qualificada e total rastreabilidade dos recursos.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 10 – RETORNO EMPRESA -->
+<section class="page" id="retorno">
+  <div class="aula-watermark">
+    <img src="images/aula-01.jpg" alt="">
+  </div>
+  <div class="ret-inner">
+    <div class="ret-top">
+      <div class="reveal">
+        <div class="page-label" style="color:#8B6914;">Retorno para o Patrocinador</div>
+        <div class="gold-rule"></div>
+        <h2 class="ret-title">Visibilidade que <span>transforma</span></h2>
+        <div class="applause-vis">
+          <div class="applause-bar"></div><div class="applause-bar"></div><div class="applause-bar"></div>
+          <div class="applause-bar"></div><div class="applause-bar"></div><div class="applause-bar"></div>
+          <div class="applause-bar"></div><div class="applause-bar"></div><div class="applause-bar"></div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <p class="ret-intro">Ao apoiar o Território em Movimento, sua empresa associa sua marca a um projeto de excelência artística, ampliando sua presença institucional em Barão de Cocais e contribuindo para o desenvolvimento social e cultural local.</p>
+        <p class="ret-intro">Uma oportunidade única de combinar responsabilidade social com visibilidade estratégica perante toda a comunidade.</p>
+      </div>
+    </div>
+    <div class="ret-benefits reveal reveal-delay-2">
+      <div class="ret-benefit"><span class="ret-benefit-icon">🎯</span><div class="ret-benefit-text"><strong>Marca associada à excelência</strong><p>Logomarca em todo material gráfico e digital do projeto</p></div></div>
+      <div class="ret-benefit"><span class="ret-benefit-icon">🌟</span><div class="ret-benefit-text"><strong>Presença nas Noites de Gala</strong><p>Visibilidade em 3 apresentações públicas com plateia lotada</p></div></div>
+      <div class="ret-benefit"><span class="ret-benefit-icon">🏙️</span><div class="ret-benefit-text"><strong>Protagonismo territorial</strong><p>Fortalecimento da imagem institucional em Barão de Cocais</p></div></div>
+      <div class="ret-benefit"><span class="ret-benefit-icon">📊</span><div class="ret-benefit-text"><strong>Relatório de Impacto e Mídia</strong><p>Documentação completa do alcance e resultados gerados</p></div></div>
+      <div class="ret-benefit"><span class="ret-benefit-icon">🤲</span><div class="ret-benefit-text"><strong>Responsabilidade social</strong><p>Amplificação da atuação ESG e percepção positiva da marca</p></div></div>
+      <div class="ret-benefit"><span class="ret-benefit-icon">📢</span><div class="ret-benefit-text"><strong>Citação institucional</strong><p>Reconhecimento público em todas as comunicações do projeto</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 11 – CONTRIBUIÇÃO SOCIEDADE -->
+<section class="page" id="sociedade">
+  <div class="soc-inner">
+    <div class="reveal">
+      <div class="page-label" style="text-align:center;">Contribuição para a Sociedade</div>
+      <div class="gold-rule center"></div>
+      <h2 class="soc-title">Arte como ferramenta de transformação social</h2>
+      <p class="soc-quote">"Um projeto que vai além do palco."</p>
+    </div>
+    <div class="soc-items reveal reveal-delay-1">
+      <div class="soc-item"><span class="soc-item-num">01</span><div class="soc-item-text">Formação técnica de jovens artistas</div></div>
+      <div class="soc-item"><span class="soc-item-num">02</span><div class="soc-item-text">Desenvolvimento socioemocional nas escolas</div></div>
+      <div class="soc-item"><span class="soc-item-num">03</span><div class="soc-item-text">Acesso gratuito à cultura de excelência</div></div>
+      <div class="soc-item"><span class="soc-item-num">04</span><div class="soc-item-text">Valorização de talentos locais</div></div>
+      <div class="soc-item"><span class="soc-item-num">05</span><div class="soc-item-text">Fortalecimento da identidade cultural da cidade</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PAGE 12 – INVESTIMENTO -->
+<section class="page" id="investimento">
+  <div class="inv-inner">
+    <div class="reveal">
+      <div class="page-label" style="text-align:center;">Investimento e Execução</div>
+      <div class="gold-rule center"></div>
+    </div>
+    <div class="inv-amount reveal reveal-delay-1">R$ 250.000</div>
+    <div class="inv-amount-label reveal reveal-delay-1">Valor total aprovado</div>
+    <div class="inv-details reveal reveal-delay-2">
+      <div class="inv-detail"><span class="inv-detail-val">Barão de Cocais</span><span class="inv-detail-key">Local de execução</span></div>
+      <div class="inv-detail"><span class="inv-detail-val">6 meses</span><span class="inv-detail-key">Duração do projeto</span></div>
+      <div class="inv-detail"><span class="inv-detail-val">Renúncia fiscal</span><span class="inv-detail-key">Incentivo disponível</span></div>
+    </div>
+    <p class="inv-note reveal reveal-delay-3">Projeto aprovado via Lei Estadual de Incentivo à Cultura do Estado de Minas Gerais. Possibilidade de destinação fiscal via mecanismo de renúncia para o patrocinador.</p>
+  </div>
+</section>
+
+<!-- PAGE FINAL – ENCERRAMENTO -->
+<section class="page" id="encerramento">
+  <div class="enc-bg"></div>
+  <div class="curtain-left"></div>
+  <div class="curtain-right"></div>
+  <div class="enc-arms">
+    <span class="enc-arm">🙌</span><span class="enc-arm">🙌</span><span class="enc-arm">🙌</span>
+    <span class="enc-arm">🙌</span><span class="enc-arm">🙌</span><span class="enc-arm">🙌</span>
+  </div>
+  <div class="enc-content">
+    <div class="enc-icon reveal">🌟</div>
+    <div class="enc-eyebrow reveal reveal-delay-1">Arte Minas · Barão de Cocais · MG · 2026</div>
+    <h2 class="enc-title reveal reveal-delay-1">O palco está<br><em>pronto.</em></h2>
+    <p class="enc-sub reveal reveal-delay-2">Convidamos sua empresa a integrar este movimento e contribuir para o fortalecimento cultural do território.</p>
+    <div class="enc-phrase reveal reveal-delay-3">"O Território em Movimento propõe transformar Barão de Cocais<br>em palco de formação, inclusão e excelência artística."</div>
+    <div class="enc-credits reveal reveal-delay-4">Arte Minas · Realização<br>Projeto aprovado via Lei Estadual de Incentivo à Cultura · Minas Gerais<br>2026</div>
+  </div>
+</section>
+
+<script>
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => observer.observe(el));
+
+// Nav active state
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    if (window.scrollY >= section.offsetTop - 120) current = section.getAttribute('id');
+  });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current
+      ? 'rgba(201,168,76,0.9)'
+      : 'rgba(250,249,246,0.6)';
+  });
+});
+</script>
+</body>
+</html>
